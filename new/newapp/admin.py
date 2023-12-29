@@ -10,7 +10,7 @@ admin.site.register(Category,CategoryAdmin)
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display=['name','price','stock','available','created','updated','slug']
+    list_display=['name','price','stock','available','created','updated','slug','image']
     list_editable=['price','stock','available']
     list_per_page=20
     prepopulated_fields={'slug':('name',)}
