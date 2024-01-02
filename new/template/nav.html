@@ -16,11 +16,11 @@
                   Categories
                 </a>
                 <ul class="dropdown-menu ">
-                  <li><a class="dropdown-item" href="#">EARPODS</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">HEADPHONES</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">SPEAKERS</a></li>
+                  <li><a class="dropdown-item" href="{% url 'shop:home' %}">ALL PRODUCTS</a></li>
+
+                  {% for i in cat %}
+                  <li><a class="dropdown-item" href="{{i.get_url}}">{{i.name}}</a></li>
+                  {% endfor %}
                 </ul>
               </li>
               <li class="nav-item ">

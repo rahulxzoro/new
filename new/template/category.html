@@ -3,23 +3,28 @@
 {% block body %}
 
 <div class="container">
-    <img src="{% static 'images/banener.webp' %}" alt="">
-    <h1 class="h">OUR PRODUCTS</h1>
 
+  {% if category %}
+    <img src="{{category.banner.url}}" alt="">
+    <h1 class="h">{{category.name}}</h1>
+  {% else %}
+    <img src="{% static 'images/home bann.webp' %}" alt="">
+    <h1 class="h">OUR PRODUCTS</h1>
+  {% endif %}
 </div>
 
 <div class="container mt-2">
     <div class="row">
-        {% for i in obj %}
+        {% for i in product %}
         <div class="col-lg-3 m">
 
         <div class="card" style="width: 18rem;">
-            <img src="{{i.image.url}}" class="card-img-top" alt="...">
+           <img src="{{i.image.url}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{i.name}}</h5>
               <h3 class="card-title"><i class="bi bi-currency-rupee icn">{{i.price}}</i></h3>
               <!-- <p class="card-text">{{i.desc}}</p> -->
-              <a href="#" class=" b1">MORE DETAILS</a>
+              <a href="{% url 'shop:detail' id=i.id  %}" class=" b1">MORE DETAILS</a>
             </div>
           </div>
         </div>
