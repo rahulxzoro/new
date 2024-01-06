@@ -1,0 +1,77 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"class="text-center">Register</h1>
+    
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <label for="first_name" class="form-label">First name</label>
+                    <input type="text" class="form-control" name="first_name" placeholder="First name" aria-label="First name">
+                </div>
+                <div class="col">
+                    <label for="last_name" class="form-label">Last name</label>
+                    <input type="text" class="form-control" name="last_name" placeholder="Last name" aria-label="Last name">
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" placeholder="username">
+            </div>
+            <div class="row mb-3">
+                <label for="inputEmail3" class=" form-label">Email</label>
+                <div class="col-sm">
+                  <input type="email" class="form-control" name="email" placeholder="Example@mail.com" id="inputEmail3">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control"  name="password" placeholder="Password" id="inputPassword3">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Conform Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" name="c_password" placeholder="conform password" id="inputPassword3">
+                </div>
+            </div>
+           <!-- register.html -->
+
+<div class="container mt-5">
+    <h5>Select Account Type</h5>
+    
+    <!-- <div class="form-check">
+        <input class="form-check-input" type="radio" name="preference" id="option1" value="0" checked required>
+        <label class="form-check-label" for="option1">Buyer</label>
+    </div> -->
+    
+    <div class="form-check">
+        <!-- <input class="form-check-input" type="radio" name="preference" id="option2" value="1" required>
+        <label class="form-check-label" for="option2">Seller</label> -->
+        <select name="customer_type" id="">
+            <option value="">choose your account type</option>
+            <option value="1">Seller</option>
+            <option value="0">Buyer</option>
+        </select>
+    </div>
+
+    <!-- ... (your existing code) -->
+
+</div>
+
+            <center><input type="submit"> </center>
+        </div>
+    </form>
+    {% for i in messages %}
+    {{i}}
+    {% endfor %}
+
+
+    
+
+{% endblock %}

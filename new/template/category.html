@@ -24,11 +24,22 @@
               <h5 class="card-title">{{i.name}}</h5>
               <h3 class="card-title"><i class="bi bi-currency-rupee icn">{{i.price}}</i></h3>
               <!-- <p class="card-text">{{i.desc}}</p> -->
-              <a href="{% url 'shop:detail' id=i.id  %}" class=" b1">MORE DETAILS</a>
+              <a href="{% url 'shop:detail' i.id  %}" class=" b1">MORE DETAILS</a>
             </div>
           </div>
         </div>
           {% endfor %}
+
+          <div class="container px-3">
+            <hr>
+            {% if product.paginator.num_pages > 1 %}
+            <div class="text-center">
+              {% for i in product.paginator.page_range %}
+              <a href="?page={{i}}" class="btn btn-secondary btn-sm {% if product.number == i %}active {% endif %}">{{i}}</a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
     </div>
    
 </div>

@@ -21,7 +21,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('newapp.urls'))
+    path('',include('newapp.urls')),
+    path('search/',include('searchapp.urls')),
+    path('credential/', include('credential.urls')),
+
+    
 ]
 
 if settings.DEBUG:
