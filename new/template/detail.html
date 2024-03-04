@@ -12,6 +12,11 @@
 </div>
 <div class="container c">
     <div class="row">
+        
+
+        
+
+        
         <div class="col-lg-3">
             <img class="i" src="{{prod.image.url}}" alt="">
         </div>
@@ -21,11 +26,21 @@
                 <div class="card-body">
                   <h5 class="card-title">{{prod.name}}</h5>
                   <h6 class="card-subtitle mb-2  pr"><i class="bi bi-currency-rupee icn"></i>{{prod.price}}</h6>
+                  {% if prod.stock == 0 %}
+                  
+                  {% else %}
+                  <p class="card-text text-muted red">hurry up!! only{{prod.stock}} left</p>
+                  {% endif %}
                   <p class="card-text text-muted">{{prod.desc}}</p>
-                  <a href="#" class="card-link"><button class="b1">ADD TO CART</button></a>
+                  {% if prod.stock == 0 %}
+                  <p class="out-of-stock-message">Out of stock</p>
+                  {% else %}
+                  <a href="{% url 'cart:cart' prod.id %}" class="card-link"><button class="b1">ADD TO CART</button></a>
+                  {% endif %}
                 </div>
               </div>
         </div>
+        
     </div>
 </div>
 

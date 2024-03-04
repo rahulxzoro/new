@@ -1,7 +1,7 @@
 {% load static %}
     <nav class="navbar navbar-expand-lg bg-light ">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img class="logo" src="{% static 'images/logo.svg' %}" alt=""></a>
+          <a class="navbar-brand" href="{% url 'shop:home' %}"><img class="logo"  src="{% static 'images/logo.svg' %}" alt=""></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -40,6 +40,15 @@
                 <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
               </form>
               </ul>
+              <ul class="navbar-nav icnn"> 
+                <li class="nav-item ">
+                    <a href="{% url 'cart:display' %}"><span class="material-symbols-outlined">shopping_cart</span></a>
+                    {% if count != 0 %}
+                    <h5 class="co">{{count}}</h5>
+                    {% else %}
+                    
+                    {% endif %}
+                </li>
               <ul class="navbar-nav">
               <li >
                 <a href="{% url 'credential:register' %}"><button>register</button></a>

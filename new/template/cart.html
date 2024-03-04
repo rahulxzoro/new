@@ -1,0 +1,82 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container c">
+    <div class="row">
+       
+        <div class="col-lg-7">
+                {% for i in cart %}
+                <div class="border">
+
+                <div class="row">
+                <div class="col-lg-3">
+                        <img class="im" src="{{i.product.image.url}}"  alt="">
+              </div>
+              <div class="col-lg-3 d">
+                <h5 class="text-muted" >{{i.product.name}}</h5>
+                <p class="text-muted">Qty:{{i.quantity}}</p>
+                <h5 class="r1"><span class="material-symbols-outlined r">
+                    <b>currency_rupee</b>
+                    </span>{{i.product.price}}</h5>
+                    <button role="button" class=".b">Buy Now</button>
+              </div>
+              <div class="col-lg-1 d1">
+                {% if i.quantity == i.product.stock %}
+
+                <a href="{% url 'cart:cart' i.product.id %}">  <span class="material-symbols-outlined text-white">
+                  add
+                  </span></a>
+              <a href="{% url 'cart:dele' i.product.id %}"><span class="material-symbols-outlined">
+                  remove
+                  </span></a>
+                  
+                  <a href="{% url 'cart:delete' i.product.id %}">
+                    <span class="material-symbols-outlined">
+                      delete
+                      </span>
+                  </a>
+
+                      {% else %}
+
+                      <a href="{% url 'cart:cart' i.product.id %}">  <span class="material-symbols-outlined">
+                        add
+                        </span></a>
+                    <a href="{% url 'cart:dele' i.product.id %}"><span class="material-symbols-outlined">
+                        remove
+                        </span></a>
+                        
+                        <a href="{% url 'cart:delete' i.product.id %}">
+                          <span class="material-symbols-outlined">
+                            delete
+                            </span>
+                        </a>
+                        
+
+                        {% endif %}
+                        
+                        
+              </div>
+
+            </div>
+        </div>
+        {% empty %}
+        <h3>cart is empty click <a href="{% url 'shop:home' %}">here</a> for purchase products</h3>
+            {% endfor%}
+        </div>
+
+        <div class="col-lg-5">
+            
+            <div class="card tot" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Total Amount:{{total_amount}}</h5>
+                  <a href="{% url 'cart:buy' %}"><button class=".b">PLACE ORDER</button></a>
+                </div>
+              </div>
+             
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
+

@@ -16,12 +16,13 @@ def home(request,c_slug=None):
     except:
         page = 1
     try:
+        
         products = paginator.page(page)
     except(EmptyPage,InvalidPage):
         products =paginator.page(paginator.num_pages)
     return render(request,'category.html',{"product":products,'category':c_page})
 
-def detail(request,id):
+def detail(request,id,c_slug=None):
     details=Product.objects.get(id=id)
     
     return render(request,'detail.html',{'prod':details})

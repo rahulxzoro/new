@@ -4,11 +4,11 @@
 
 
 
-<form class="form-boxxxx" action="" method="post">
+<form class="form-box" action="" method="post">
     {% csrf_token %}
     <div class="container c">
 
-        <h3 class="l"> LOGIN</h3>
+        <h3 class="l">ADMIN LOGIN</h3>
            
         <div class="row mb-3">
             <label for="username" class="col-sm-2 col-form-label u">Username</label>
@@ -24,7 +24,7 @@
             </div>
         </div>
             <a href=""><p class="f">forget password</p></a>
-            <a href="{% url 'credential:register' %}" ><p class="n ">new user</p></a>
+            <a href="{% url 'madmin:registeradmin' %}" ><p class="n ">new user</p></a>
         
         <center><input type="submit"> </center>
     </div>

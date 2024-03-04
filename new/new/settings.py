@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'newapp',
     'searchapp',
-    'credential'
+    'credential',
+    'cart',
+    'Adminapp'
+    
 ]
 
 MIDDLEWARE = [
@@ -66,6 +69,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'newapp.context_processors.menu_links',
+                'cart.context_processors.count',
             ],
         },
     },

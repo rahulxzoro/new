@@ -12,3 +12,29 @@ img {width: 100%;}
 {
     margin-left: 20px;
 }
+.cart 
+{
+    margin-left: -2cm;
+}
+.material-symbols-outlined {
+    color: red;
+}
+
+.navbar-nav.icnn {
+    position: relative;
+  }
+
+  .navbar-nav.icnn .nav-item {
+    position: relative;
+  }
+
+  .navbar-nav.icnn .co {
+    position: absolute;
+    top: 0;
+    right: -25;
+    background-color: red; 
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+  }

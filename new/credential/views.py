@@ -14,7 +14,6 @@ def register(request):
         password=request.POST['password']
         c_password=request.POST['c_password']
         customer_type=request.POST['customer_type']
-        print(customer_type)
         if password==c_password:
             if User.objects.filter(username=Username).exists():
                 messages.info(request,"username already taken")
@@ -33,12 +32,15 @@ def register(request):
     return render(request,'register.html')       
 
 def login(request):
+    
     if request.method=='POST':
         username=request.POST['username']
         password=request.POST['password']
         user = auth.authenticate(username=username, password=password)
+        print(user.id)
         if user is not  None:
             auth.login(request,user)
+            request.session['user']=user.id
             return redirect('/')
         else:
             messages.info(request,"invalid user")
@@ -48,4 +50,5 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
+    request.session.flush()
     return redirect('/')
